@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DreamForge — Discover. Build. Become.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a0e17; --navy2:#0f1420; --ink:#0d1117; --white:#ffffff;
+  --gray-50:#f6f7f9; --gray-100:#eceef2; --gray-300:#c7ccd6; --gray-500:#6b7280; --gray-700:#374151;
+  --blue:#2f6bff; --blue-light:#e8effe; --border:#e4e6ec;
+  --radius:10px; --maxw:1180px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth; scroll-padding-top:70px}
+body{font-family:'Inter',system-ui,sans-serif; color:var(--ink); background:var(--white); line-height:1.5; -webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Manrope',system-ui,sans-serif; color:var(--ink); font-weight:700; letter-spacing:-0.02em}
+img{max-width:100%}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+a{color:inherit; text-decoration:none}
+.section{padding:108px 0}
+.section-tight{padding:88px 0}
+@media(max-width:768px){.section{padding:64px 0}.section-tight{padding:56px 0}}
+.eyebrow{color:var(--blue); font-weight:600; font-size:14px; margin-bottom:14px}
+.kicker{color:var(--gray-500); font-size:18px; max-width:560px; margin-top:16px; line-height:1.6}
+.center{text-align:center; margin-left:auto; margin-right:auto}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:600; font-size:15px; padding:13px 24px; border-radius:8px; cursor:pointer; border:1px solid transparent; transition:transform .15s ease, background .15s ease, border-color .15s ease}
+.btn:active{transform:scale(0.97)}
+.btn-primary{background:var(--blue); color:#fff}
+.btn-primary:hover{background:#2559d9}
+.btn-ghost{background:transparent; color:var(--ink); border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--gray-500)}
+.btn-dark{background:#fff;color:var(--navy)}
+.btn-dark:hover{background:var(--gray-100)}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.btn-outline-light:hover{border-color:#fff}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:32px}
+.center .cta-row{justify-content:center}
+
+/* NAV */
+header{position:sticky; top:0; z-index:100; background:rgba(255,255,255,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--border)}
+nav{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:var(--maxw); margin:0 auto}
+.logo{font-family:'Manrope'; font-weight:800; font-size:19px; display:flex; align-items:center; gap:8px}
+.logo-mark{width:22px;height:22px;background:var(--navy); border-radius:6px; position:relative}
+.logo-mark::after{content:"";position:absolute; inset:5px; background:var(--blue); border-radius:2px}
+.navlinks{display:flex; gap:32px; font-size:14.5px; font-weight:500; color:var(--gray-700)}
+.navlinks a:hover{color:var(--ink)}
+.navright{display:flex; align-items:center; gap:18px; font-size:14.5px; font-weight:500}
+.navtoggle{display:none; flex-direction:column; gap:4px; cursor:pointer; background:none; border:none}
+.navtoggle span{width:20px; height:2px; background:var(--ink)}
+@media(max-width:860px){
+  .navlinks{position:fixed; top:64px; left:0; right:0; background:#fff; flex-direction:column; padding:20px 28px; gap:18px; border-bottom:1px solid var(--border); transform:translateY(-130%); transition:transform .25s ease}
+  .navlinks.open{transform:translateY(0)}
+  .navtoggle{display:flex}
+  .navright .login{display:none}
+}
+
+/* HERO */
+.hero{padding:96px 0 60px; position:relative; overflow:hidden}
+.hero .wrap{display:grid; grid-template-columns:1fr; gap:16px; text-align:center; max-width:900px}
+.hero h1{font-size:clamp(38px,6vw,64px); line-height:1.05}
+.hero p.kicker{margin:22px auto 0; font-size:19px; max-width:620px}
+.tagline{color:var(--blue); font-weight:600; letter-spacing:.02em; margin-bottom:18px; font-size:15px}
+
+/* Hero dashboard visual */
+.hero-visual{margin:64px auto 0; max-width:980px; background:var(--navy); border-radius:16px; padding:36px 28px; position:relative; box-shadow:0 30px 70px -25px rgba(10,14,23,.45)}
+.flow{display:flex; align-items:center; justify-content:space-between; gap:6px; flex-wrap:wrap}
+.flow-node{background:#141a29; border:1px solid #232b3d; border-radius:10px; padding:16px 14px; flex:1; min-width:110px; text-align:left}
+.flow-node .flabel{color:#7c8aa8; font-size:11px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px}
+.flow-node .fval{color:#fff; font-size:14.5px; font-weight:600; font-family:'Manrope'}
+.flow-arrow{color:#3a4460; font-size:18px; flex:0 0 auto}
+.flow-arrow svg{width:20px;height:20px; display:block}
+.flow-node.active{border-color:var(--blue); background:#16233f}
+.flow-node.active .fval{color:#8fb0ff}
+@media(max-width:768px){.flow{flex-direction:column; align-items:stretch}.flow-arrow{transform:rotate(90deg); align-self:center}}
+.pulse-line{stroke-dasharray:4 4; animation:dash 3s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-40}}
+
+/* Problem cards */
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+.grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+@media(max-width:860px){.grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid-3,.grid-2{grid-template-columns:1fr}}
+.card{background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:26px}
+.problem-card{padding:24px}
+.problem-card .q{font-family:'Manrope'; font-weight:700; font-size:16px; margin-bottom:6px}
+.problem-card .qn{color:var(--gray-500); font-size:14px}
+.section-head{max-width:640px; margin-bottom:48px}
+.section-head.center{margin-left:auto; margin-right:auto; text-align:center}
+.section-head h2{font-size:clamp(26px,3.4vw,38px); line-height:1.15}
+.closing-line{text-align:center; margin-top:48px; font-family:'Manrope'; font-weight:700; font-size:20px}
+
+/* Roadmap builder */
+.roadmap-panel{display:grid; grid-template-columns:1fr 1.3fr; gap:28px; background:var(--gray-50); border:1px solid var(--border); border-radius:16px; padding:32px}
+@media(max-width:860px){.roadmap-panel{grid-template-columns:1fr}}
+.field{margin-bottom:16px}
+.field label{display:block; font-size:13px; font-weight:600; color:var(--gray-700); margin-bottom:6px}
+.field input,.field select{width:100%; padding:11px 12px; border:1px solid var(--border); border-radius:8px; font-family:inherit; font-size:14.5px; background:#fff}
+.roadmap-steps{display:flex; flex-direction:column; gap:10px}
+.rstep{display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--border); border-radius:10px; padding:13px 16px}
+.rstep .dot{width:9px;height:9px;border-radius:50%; background:var(--blue); flex:0 0 auto}
+.rstep .rt{font-weight:600; font-size:14.5px}
+.goal-tag{display:inline-block; background:var(--blue-light); color:var(--blue); font-weight:600; font-size:13px; padding:6px 12px; border-radius:20px; margin-bottom:14px}
+
+/* Skill visual */
+.skill-flow{display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:40px}
+.skill-pill{background:var(--gray-50); border:1px solid var(--border); border-radius:10px; padding:14px 18px; font-weight:600; font-size:14px; text-align:center}
+.skill-pill.hi{background:var(--navy); color:#fff; border-color:var(--navy)}
+.arrow-sm{color:var(--gray-300); font-size:20px}
+
+/* dashboard mockup */
+.dash{background:var(--navy); border-radius:16px; padding:30px; color:#fff}
+.dash-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media(max-width:700px){.dash-grid{grid-template-columns:1fr}}
+.dash-card{background:#141a29; border:1px solid #232b3d; border-radius:12px; padding:20px}
+.dash-card .dl{color:#7c8aa8; font-size:12px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px}
+.dash-card .dv{font-family:'Manrope'; font-weight:700; font-size:20px}
+.progress-bar{height:8px; background:#232b3d; border-radius:6px; overflow:hidden; margin-top:10px}
+.progress-fill{height:100%; background:var(--blue); width:68%}
+.chip-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+.chip{background:#1c2436; color:#c7d3ee; font-size:12.5px; padding:5px 10px; border-radius:20px; border:1px solid #2b3448}
+.ai-note{grid-column:1/-1; background:#16233f; border:1px solid #26365c; border-radius:12px; padding:18px 20px}
+.ai-note .dl{color:#8fb0ff}
+.ai-note p{font-size:14.5px; color:#dbe4f7; line-height:1.55}
+
+/* opportunities */
+.filter-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px}
+.filter-chip{border:1px solid var(--border); border-radius:8px; padding:9px 16px; font-size:14px; font-weight:500; background:#fff; cursor:pointer}
+.filter-chip.active{border-color:var(--navy); background:var(--navy); color:#fff}
+.opp-card{border:1px solid var(--border); border-radius:var(--radius); padding:22px; display:flex; flex-direction:column; gap:10px}
+.opp-tag{font-size:12px; font-weight:600; color:var(--blue); text-transform:uppercase; letter-spacing:.04em}
+.opp-title{font-family:'Manrope'; font-weight:700; font-size:16.5px}
+.opp-meta{font-size:13.5px; color:var(--gray-500)}
+
+/* entrepreneurship flow */
+.eflow{display:flex; justify-content:space-between; align-items:center; gap:6px; flex-wrap:wrap; margin:36px 0}
+.enode{background:#fff; border:1px solid var(--border); border-radius:10px; padding:14px 18px; font-weight:600; font-size:14.5px; text-align:center; flex:1; min-width:110px}
+@media(max-width:768px){.eflow{flex-direction:column; align-items:stretch}}
+
+/* AI Mentor chat */
+.chat-panel{max-width:640px; margin:0 auto; background:var(--gray-50); border:1px solid var(--border); border-radius:16px; padding:24px}
+.chat-bubble{border-radius:12px; padding:12px 16px; font-size:14.5px; margin-bottom:12px; max-width:80%}
+.chat-user{background:var(--navy); color:#fff; margin-left:auto}
+.chat-ai{background:#fff; border:1px solid var(--border)}
+.chat-suggestions{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px}
+.chat-sugg{border:1px solid var(--border); border-radius:20px; padding:8px 14px; font-size:13px; background:#fff; cursor:pointer}
+
+/* community */
+.comm-item{display:flex; align-items:flex-start; gap:12px; padding:16px 0; border-bottom:1px solid var(--border)}
+.comm-item:last-child{border-bottom:none}
+.comm-dot{width:8px;height:8px;border-radius:2px; background:var(--blue); margin-top:7px; flex:0 0 auto}
+
+/* matching */
+.match-flow{display:flex; flex-direction:column; align-items:center; gap:18px; max-width:520px; margin:36px auto 0}
+.match-box{width:100%; border:1px solid var(--border); border-radius:12px; padding:20px; text-align:center}
+.match-box.ai{background:var(--navy); color:#fff; border-color:var(--navy)}
+.match-box.ai .dl{color:#8fb0ff; font-size:12px; text-transform:uppercase; letter-spacing:.05em}
+.tag-row{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:10px}
+
+/* journey */
+.journey{display:flex; align-items:center; gap:4px; overflow-x:auto; padding:12px 4px 20px}
+.jstep{flex:0 0 auto; background:#fff; border:1px solid var(--border); border-radius:10px; padding:16px 20px; font-weight:600; font-size:14px; white-space:nowrap}
+.jarrow{color:var(--gray-300); flex:0 0 auto}
+
+/* final CTA */
+.final{background:var(--navy); color:#fff; text-align:center}
+.final h2{color:#fff; font-size:clamp(30px,5vw,48px)}
+.final p{color:#a7b1c9; font-size:18px; margin-top:16px}
+.final .cta-row{justify-content:center}
+.final .tag{margin-top:40px; color:#6b7796; font-weight:600; letter-spacing:.03em}
+
+footer{padding:32px 0; text-align:center; color:var(--gray-500); font-size:13.5px; border-top:1px solid var(--border)}
+
+.reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+.reveal.show{opacity:1; transform:translateY(0)}
+:focus-visible{outline:2px solid var(--blue); outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+  <div class="logo"><span class="logo-mark"></span>DreamForge</div>
+  <div class="navlinks" id="navlinks">
+    <a href="#hero">Home</a>
+    <a href="#career">Career</a>
+    <a href="#learn">Learn</a>
+    <a href="#opportunities">Opportunities</a>
+    <a href="#entrepreneurship">Entrepreneurship</a>
+    <a href="#community">Community</a>
+  </div>
+  <div class="navright">
+    <a href="#" class="login">Log in</a>
+    <a href="#roadmap" class="btn btn-primary">Get Started</a>
+    <button class="navtoggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+</header>
+
+<section class="hero" id="hero">
+  <div class="wrap reveal">
+    <div class="tagline">Discover. Build. Become.</div>
+    <h1>Your Future Shouldn't Be a Guess.</h1>
+    <p class="kicker">DreamForge helps you discover what to learn, build the right skills, find opportunities, plan your career, and turn ideas into businesses.</p>
+    <div class="cta-row">
+      <a href="#roadmap" class="btn btn-primary">Build My Roadmap</a>
+      <a href="#learn" class="btn btn-ghost">Explore DreamForge</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-visual reveal">
+      <div class="flow">
+        <div class="flow-node active"><div class="flabel">Your Goal</div><div class="fval">Full-Stack Dev</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node"><div class="flabel">Skills</div><div class="fval">JS · React · SQL</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node"><div class="flabel">Learning</div><div class="fval">3 courses</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node"><div class="flabel">Projects</div><div class="fval">5 builds</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node"><div class="flabel">Opportunities</div><div class="fval">12 internships</div></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node"><div class="flabel">Career</div><div class="fval">Hired</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <h2>Students have information. What they need is direction.</h2>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card problem-card"><div class="qn">01</div><div class="q">What should I learn?</div></div>
+      <div class="card problem-card"><div class="qn">02</div><div class="q">Which career is right for me?</div></div>
+      <div class="card problem-card"><div class="qn">03</div><div class="q">What skills am I missing?</div></div>
+      <div class="card problem-card"><div class="qn">04</div><div class="q">Where can I find internships?</div></div>
+      <div class="card problem-card"><div class="qn">05</div><div class="q">How do I get my first job?</div></div>
+      <div class="card problem-card"><div class="qn">06</div><div class="q">I have a startup idea. Where do I start?</div></div>
+    </div>
+    <div class="closing-line reveal">DreamForge turns confusion into a clear next step.</div>
+  </div>
+</section>
+
+<section class="section" id="roadmap">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">AI Career Roadmap</div>
+      <h2>Know where you're going. Know what to do next.</h2>
+    </div>
+    <div class="roadmap-panel reveal">
+      <div>
+        <div class="field"><label>Career goal</label><input value="Full-Stack Developer"></div>
+        <div class="field"><label>Current education</label><select><option>B.Tech, 3rd year</option></select></div>
+        <div class="field"><label>Interests</label><input value="Web development, product design"></div>
+        <div class="field"><label>Time available</label><select><option>10 hrs / week</option></select></div>
+        <a href="#" class="btn btn-primary" style="width:100%">Create My Roadmap</a>
+      </div>
+      <div>
+        <div class="goal-tag">Goal: Full-Stack Developer</div>
+        <div class="roadmap-steps">
+          <div class="rstep"><span class="dot"></span><span class="rt">Learn JavaScript</span></div>
+          <div class="rstep"><span class="dot"></span><span class="rt">Learn React</span></div>
+          <div class="rstep"><span class="dot"></span><span class="rt">Build 3 Projects</span></div>
+          <div class="rstep"><span class="dot"></span><span class="rt">Create Portfolio</span></div>
+          <div class="rstep"><span class="dot"></span><span class="rt">Find Internships</span></div>
+          <div class="rstep"><span class="dot"></span><span class="rt">Prepare for Interviews</span></div>
+          <div class="rstep"><span class="dot"></span><span class="rt">Apply for Jobs</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" id="learn" style="background:var(--gray-50)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Learn & Skill Development</div>
+      <h2>Learn skills that actually move you forward.</h2>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card">AI-recommended learning paths</div>
+      <div class="card">Courses</div>
+      <div class="card">Skill assessments</div>
+      <div class="card">Practice</div>
+      <div class="card">Projects</div>
+      <div class="card">Certifications</div>
+      <div class="card">Learning progress</div>
+      <div class="card">Skill-gap analysis</div>
+    </div>
+    <div class="skill-flow reveal">
+      <div class="skill-pill">Current Skills</div><div class="arrow-sm">→</div>
+      <div class="skill-pill">Skill Gap</div><div class="arrow-sm">→</div>
+      <div class="skill-pill">Recommended Learning</div><div class="arrow-sm">→</div>
+      <div class="skill-pill hi">Job-Ready Skills</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="career">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Career Hub</div>
+      <h2>Build your career before graduation.</h2>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card">Career exploration</div>
+      <div class="card">Career paths</div>
+      <div class="card">Job opportunities</div>
+      <div class="card">Internship opportunities</div>
+      <div class="card">Resume builder</div>
+      <div class="card">Portfolio builder</div>
+      <div class="card">Interview preparation</div>
+      <div class="card">Aptitude preparation</div>
+      <div class="card">Technical preparation</div>
+      <div class="card">Soft skills</div>
+      <div class="card">LinkedIn / profile guidance</div>
+    </div>
+    <div class="cta-row"><a href="#" class="btn btn-primary">Explore Career Paths</a></div>
+  </div>
+</section>
+
+<section class="section-tight" id="opportunities" style="background:var(--gray-50)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Opportunities Hub</div>
+      <h2>Don't miss opportunities because you didn't know they existed.</h2>
+    </div>
+    <div class="filter-row reveal">
+      <button class="filter-chip active">Role</button>
+      <button class="filter-chip">Skill</button>
+      <button class="filter-chip">Location</button>
+      <button class="filter-chip">Remote</button>
+      <button class="filter-chip">Experience</button>
+      <button class="filter-chip">Opportunity Type</button>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="opp-card"><div class="opp-tag">Internship</div><div class="opp-title">Frontend Developer Intern</div><div class="opp-meta">Remote · 0–1 yr exp</div></div>
+      <div class="opp-card"><div class="opp-tag">Hackathon</div><div class="opp-title">Build for Bharat Hackathon</div><div class="opp-meta">Online · Team of 4</div></div>
+      <div class="opp-card"><div class="opp-tag">Scholarship</div><div class="opp-title">Merit Tech Scholarship</div><div class="opp-meta">India · Undergraduate</div></div>
+      <div class="opp-card"><div class="opp-tag">Job</div><div class="opp-title">Junior React Developer</div><div class="opp-meta">Bengaluru · Fresher</div></div>
+      <div class="opp-card"><div class="opp-tag">Freelance</div><div class="opp-title">Landing page for a D2C brand</div><div class="opp-meta">Remote · Fixed price</div></div>
+      <div class="opp-card"><div class="opp-tag">Workshop</div><div class="opp-title">Intro to System Design</div><div class="opp-meta">Online · Free</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="entrepreneurship">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Entrepreneurship</div>
+      <h2>Have an idea? Turn it into something real.</h2>
+    </div>
+    <div class="eflow reveal">
+      <div class="enode">Idea</div><div class="arrow-sm">→</div>
+      <div class="enode">Validate</div><div class="arrow-sm">→</div>
+      <div class="enode">Research</div><div class="arrow-sm">→</div>
+      <div class="enode">MVP</div><div class="arrow-sm">→</div>
+      <div class="enode">Launch</div><div class="arrow-sm">→</div>
+      <div class="enode">Grow</div>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card">Startup idea generator</div>
+      <div class="card">Idea validation</div>
+      <div class="card">Problem identification</div>
+      <div class="card">Target customer analysis</div>
+      <div class="card">Competitor research</div>
+      <div class="card">Market analysis</div>
+      <div class="card">Business model</div>
+      <div class="card">MVP planning</div>
+      <div class="card">Pitch-deck guidance</div>
+    </div>
+    <div class="cta-row"><a href="#" class="btn btn-primary">Validate My Idea</a></div>
+  </div>
+</section>
+
+<section class="section-tight" style="background:var(--gray-50)">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">AI Mentor</div>
+      <h2>Your AI mentor, available whenever you need direction.</h2>
+    </div>
+    <div class="chat-panel reveal">
+      <div class="chat-bubble chat-user">Which career matches my skills?</div>
+      <div class="chat-bubble chat-ai">Based on your React and SQL skills, Full-Stack Development and Product Engineering are strong fits. Want a roadmap for either?</div>
+      <div class="chat-suggestions">
+        <span class="chat-sugg">What should I learn next?</span>
+        <span class="chat-sugg">Review my resume</span>
+        <span class="chat-sugg">Give me project ideas</span>
+        <span class="chat-sugg">Is my startup idea worth exploring?</span>
+      </div>
+    </div>
+    <div class="cta-row center" style="justify-content:center"><a href="#" class="btn btn-primary">Talk to DreamForge AI</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Student Dashboard</div>
+      <h2>Everything about your journey, in one view.</h2>
+    </div>
+    <div class="dash reveal">
+      <div class="dash-grid">
+        <div class="dash-card"><div class="dl">My Goal</div><div class="dv">Full-Stack Developer</div></div>
+        <div class="dash-card"><div class="dl">Progress</div><div class="dv">68%</div><div class="progress-bar"><div class="progress-fill"></div></div></div>
+        <div class="dash-card"><div class="dl">Next Step</div><div class="dv">Complete React Project</div></div>
+        <div class="dash-card"><div class="dl">Skill Gap</div><div class="chip-row"><span class="chip">React</span><span class="chip">SQL</span><span class="chip">Git</span></div></div>
+        <div class="dash-card"><div class="dl">Recommended</div><div class="chip-row"><span class="chip">3 courses</span><span class="chip">5 projects</span><span class="chip">12 internships</span><span class="chip">4 hackathons</span></div></div>
+        <div class="ai-note"><div class="dl">AI Recommendation</div><p>Complete your portfolio project before applying to internships.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" id="community" style="background:var(--gray-50)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Community</div>
+      <h2>Grow with people who are building too.</h2>
+    </div>
+    <div class="grid-2 reveal">
+      <div>
+        <div class="comm-item"><span class="comm-dot"></span>Student communities</div>
+        <div class="comm-item"><span class="comm-dot"></span>Q&A</div>
+        <div class="comm-item"><span class="comm-dot"></span>Project sharing</div>
+        <div class="comm-item"><span class="comm-dot"></span>Study groups</div>
+      </div>
+      <div>
+        <div class="comm-item"><span class="comm-dot"></span>Mentorship</div>
+        <div class="comm-item"><span class="comm-dot"></span>Peer networking</div>
+        <div class="comm-item"><span class="comm-dot"></span>Startup collaboration</div>
+        <div class="comm-item"><span class="comm-dot"></span>Hackathon teams</div>
+      </div>
+    </div>
+    <div class="cta-row"><a href="#" class="btn btn-primary">Join the Community</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Personalized Matching</div>
+      <h2>Recommendations built around you, not a generic list.</h2>
+    </div>
+    <div class="match-flow reveal">
+      <div class="match-box"><div class="dl" style="font-size:12px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em">Your Profile</div>
+        <div class="tag-row"><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">Java</span><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">Python</span><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">React</span><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">SQL</span></div>
+      </div>
+      <div class="arrow-sm">↓</div>
+      <div class="match-box ai"><div class="dl">DreamForge AI Matching</div></div>
+      <div class="arrow-sm">↓</div>
+      <div class="match-box"><div class="dl" style="font-size:12px;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em">Recommended</div>
+        <div class="tag-row"><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">Internships</span><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">Hackathons</span><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">Projects</span><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">Jobs</span><span class="chip" style="background:var(--gray-100);color:var(--ink);border-color:var(--border)">Courses</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" style="background:var(--gray-50)">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <h2>One platform. Your entire journey.</h2>
+    </div>
+    <div class="journey reveal">
+      <div class="jstep">Discover Yourself</div><div class="jarrow">→</div>
+      <div class="jstep">Choose a Direction</div><div class="jarrow">→</div>
+      <div class="jstep">Build Skills</div><div class="jarrow">→</div>
+      <div class="jstep">Build Projects</div><div class="jarrow">→</div>
+      <div class="jstep">Find Opportunities</div><div class="jarrow">→</div>
+      <div class="jstep">Get Hired / Start Building</div><div class="jarrow">→</div>
+      <div class="jstep">Grow</div>
+    </div>
+  </div>
+</section>
+
+<section class="section final">
+  <div class="wrap reveal">
+    <h2>Stop wondering what to do next.</h2>
+    <p>Start building the future you want with DreamForge.</p>
+    <div class="cta-row">
+      <a href="#roadmap" class="btn btn-dark">Start My Journey</a>
+      <a href="#learn" class="btn btn-outline-light">Explore Features</a>
+    </div>
+    <div class="tag">DreamForge — Discover. Build. Become.</div>
+  </div>
+</section>
+
+<footer>© 2026 DreamForge. All rights reserved.</footer>
+
+<script>
+document.getElementById('navtoggle').addEventListener('click',()=>{
+  document.getElementById('navlinks').classList.toggle('open');
+});
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navlinks').classList.remove('open');
+}));
+document.querySelectorAll('.filter-chip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.filter-chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active');
+}));
+document.querySelectorAll('.chat-sugg').forEach(s=>s.addEventListener('click',()=>{
+  const panel=s.closest('.chat-panel');
+  const u=document.createElement('div'); u.className='chat-bubble chat-user'; u.textContent=s.textContent;
+  panel.insertBefore(u, panel.querySelector('.chat-suggestions'));
+}));
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
